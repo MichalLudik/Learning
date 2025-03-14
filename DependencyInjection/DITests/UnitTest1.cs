@@ -17,11 +17,13 @@ namespace DITests
             var transientServiceMock = new Mock<ITransientService>();
             var scopedServiceMock = new Mock<IScopedService>();
             var singletonServiceMock = new Mock<ISingletonService>();
+            var example = new Mock<IExampleService>();
 
             var service = new ServiceLifetimeReporter(
                 transientServiceMock.Object,
                 scopedServiceMock.Object,
-                singletonServiceMock.Object);
+                singletonServiceMock.Object,
+                new List<IExampleService>() { example.Object });
 
             using var sw = new StringWriter();
             Console.SetOut(sw);

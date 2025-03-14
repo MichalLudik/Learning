@@ -1,7 +1,6 @@
 ﻿using DependencyInjection.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Security.Cryptography.X509Certificates;
 
 namespace DependencyInjection
 {
@@ -9,12 +8,13 @@ namespace DependencyInjection
     {
         static void Main(string[] args)
         {
-
-            // skus si to, ze budes vypisovat spravu a do metody posles bud logger typy console alebo iny message writer
-            // tzn bude tam AddSingleton<IMessageLogger, Logger1 / Logger2>
             var builder = Host.CreateApplicationBuilder(args);
 
             builder.Services.AddTransient<ITransientService, TransientService>();
+            builder.Services.AddTransient<ITransientService, TransientKeyedService>(); //this was keyed service before
+            builder.Services.AddKeyedTransient<IExampleService>("fero", (sp, key) => new ExampleService("ahoj"));
+            builder.Services.AddTransient<IExampleService>(x => new ExampleService("cusky"));
+            builder.Services.AddTransient<IExampleService>(x => new ExampleService("cusky2"));
             builder.Services.AddScoped<IScopedService, ScopedService>();
             builder.Services.AddSingleton<ISingletonService, SingletonService>();
             builder.Services.AddTransient<ServiceLifetimeReporter>();
@@ -29,13 +29,13 @@ namespace DependencyInjection
             {
                 using IServiceScope scope = hostProvider.CreateScope();
                 IServiceProvider serviceProvider = scope.ServiceProvider;
-                ServiceLifetimeReporter logger = serviceProvider.GetRequiredService<ServiceLifetimeReporter>();
-                logger.Report($"{lifetime} call 1 to service provider.");
+                ServiceLifetimeReporter reporter = serviceProvider.GetRequiredService<ServiceLifetimeReporter>();
+                reporter.Report($"{lifetime} call 1 to service provider.");
 
                 Console.WriteLine("...");
 
-                logger = serviceProvider.GetRequiredService<ServiceLifetimeReporter>();
-                logger.Report($"{lifetime} call 2 to service provider.");
+                reporter = serviceProvider.GetRequiredService<ServiceLifetimeReporter>();
+                reporter.Report($"{lifetime} call 2 to service provider.");
 
                 Console.WriteLine();
             }
