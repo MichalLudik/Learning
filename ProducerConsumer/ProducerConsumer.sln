@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProducerConsumer", "Produce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProducerConsumerThreads", "..\ProducerConsumerThreads\ProducerConsumerThreads.csproj", "{4C3D0659-7A82-4924-B8A6-4C919B70600F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProducerConsumerBlockingCollection", "..\ProducerConsumerBlockingCollection\ProducerConsumerBlockingCollection.csproj", "{C8FCBBBE-0F54-4C31-947B-F68AB9FD039B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProducerConsumerQueueTypes", "..\ProducerConsumerQueueTypes\ProducerConsumerQueueTypes.csproj", "{01484F4C-6438-4617-ADEC-9786508C319F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4C3D0659-7A82-4924-B8A6-4C919B70600F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C3D0659-7A82-4924-B8A6-4C919B70600F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C3D0659-7A82-4924-B8A6-4C919B70600F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8FCBBBE-0F54-4C31-947B-F68AB9FD039B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FCBBBE-0F54-4C31-947B-F68AB9FD039B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FCBBBE-0F54-4C31-947B-F68AB9FD039B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FCBBBE-0F54-4C31-947B-F68AB9FD039B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01484F4C-6438-4617-ADEC-9786508C319F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01484F4C-6438-4617-ADEC-9786508C319F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01484F4C-6438-4617-ADEC-9786508C319F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01484F4C-6438-4617-ADEC-9786508C319F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
