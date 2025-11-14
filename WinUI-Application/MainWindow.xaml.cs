@@ -11,21 +11,12 @@ namespace WinUI_Application
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public MainViewModel ViewModel { get; set; } = new MainViewModel();
-
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void TwoState_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine("Unchecked");
-        }
-
-        private void TwoState_Checked(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine("Checked");
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(AppTitleBar);
         }
     }
 }
